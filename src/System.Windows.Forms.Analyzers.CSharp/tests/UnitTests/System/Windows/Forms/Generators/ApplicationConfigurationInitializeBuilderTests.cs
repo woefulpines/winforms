@@ -48,15 +48,14 @@ public partial class ApplicationConfigurationInitializeBuilderTests
 
     public static TheoryData<CultureInfo, object, string> GenerateInitializeData()
     {
-        var testData = new TheoryData<CultureInfo, object, string>();
+        TheoryData<CultureInfo, object, string> testData = new();
 
         foreach (string cultureName in s_locales)
         {
             CultureInfo culture = new(cultureName);
 
             // EnableVisualStyles: false, true
-            testData.Add
-            (
+            testData.Add(
                 culture,
                 new ApplicationConfig(
                     EnableVisualStyles: false,
@@ -67,8 +66,7 @@ public partial class ApplicationConfigurationInitializeBuilderTests
                 "EnableVisualStyles=false"
             );
 
-            testData.Add
-            (
+            testData.Add(
                 culture,
                 new ApplicationConfig(
                     EnableVisualStyles: true,
@@ -80,8 +78,7 @@ public partial class ApplicationConfigurationInitializeBuilderTests
             );
 
             // UseCompatibleTextRendering: false, true
-            testData.Add
-            (
+            testData.Add(
                 culture,
                 new ApplicationConfig(
                     EnableVisualStyles: PropertyDefaultValue.EnableVisualStyles,
@@ -91,9 +88,8 @@ public partial class ApplicationConfigurationInitializeBuilderTests
                 ),
                 "UseCompTextRendering=false"
             );
-            
-            testData.Add
-            (
+
+            testData.Add(
                 culture,
                 new ApplicationConfig(
                     EnableVisualStyles: PropertyDefaultValue.EnableVisualStyles,
@@ -105,8 +101,7 @@ public partial class ApplicationConfigurationInitializeBuilderTests
             );
 
             // DefaultFont: null, FontDescriptor
-            testData.Add
-            (
+            testData.Add(
                 culture,
                 new ApplicationConfig(
                     EnableVisualStyles: PropertyDefaultValue.EnableVisualStyles,
@@ -117,8 +112,7 @@ public partial class ApplicationConfigurationInitializeBuilderTests
                 "DefaultFont=null"
             );
 
-            testData.Add
-            (
+            testData.Add(
                 culture,
                 new ApplicationConfig(
                     EnableVisualStyles: PropertyDefaultValue.EnableVisualStyles,
@@ -129,8 +123,7 @@ public partial class ApplicationConfigurationInitializeBuilderTests
                 "DefaultFont=default"
             );
 
-            testData.Add
-            (
+            testData.Add(
                 culture,
                 new ApplicationConfig(
                     EnableVisualStyles: PropertyDefaultValue.EnableVisualStyles,
@@ -141,8 +134,7 @@ public partial class ApplicationConfigurationInitializeBuilderTests
                 "DefaultFont=Tahoma"
             );
 
-            testData.Add
-            (
+            testData.Add(
                 culture,
                 new ApplicationConfig(
                     EnableVisualStyles: PropertyDefaultValue.EnableVisualStyles,
